@@ -6,6 +6,7 @@ Works on Linux, but on a 8192 bytes specified file size I got 8064 as actual siz
 Comprehensive online blog documentation here: https://www.powershelladmin.com/wiki/Create_cryptographically_secure_and_pseudorandom_data_with_PowerShell
 
 ```
+PS /home/joakim> Save-Module -Name RandomData -Path /home/joakim/Documents
 PS /home/joakim> ipmo ./Documents/RandomData                                      
 PS /home/joakim> $Key = New-RandomData -LineLength 3096 -Size 3096 -StreamToSTDOUT
 PS /home/joakim> $Key[0..10] -join ", "                                           
