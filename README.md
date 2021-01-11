@@ -1,13 +1,22 @@
 # RandomData
 Generates cryptographically secure or pseudorandom data. Can be used to generate keys and passwords with the -StreamToSTDOUT parameter and has comprehensive features for generating files with random data, of a specified size.
 
-Works on Linux, but on a 8192 bytes specified file size I got 8064 as actual size. Guessing "\r" missing once per line is the difference. Might fix.
+Works on Linux, but on a 8192 bytes specified file size I got 8064 as actual size. Guessing "\r" missing once per line is the difference. 
+Might investigate and fix.
 
-Comprehensive online blog documentation here: https://www.powershelladmin.com/wiki/Create_cryptographically_secure_and_pseudorandom_data_with_PowerShell
+The module has been published to the PowerShell Gallery and can be downloaded, inspected and installed with `Save-Module`, `Find-Module` and `Install-Module`.
+
+PowerShell Gallery link (Microsoft site): https://www.powershellgallery.com/packages/RandomData/
+
+Comprehensive online blog documentation here: 
+https://www.powershelladmin.com/wiki/Create_cryptographically_secure_and_pseudorandom_data_with_PowerShell
+
+
+Some code examples.
 
 ```
 PS /home/joakim> Save-Module -Name RandomData -Path /home/joakim/Documents
-PS /home/joakim> ipmo ./Documents/RandomData                                      
+PS /home/joakim> Import-Module ./Documents/RandomData                                      
 PS /home/joakim> $Key = New-RandomData -LineLength 3096 -Size 3096 -StreamToSTDOUT
 PS /home/joakim> $Key[0..10] -join ", "                                           
 i, y, R, o, 7, 5, U, O, g, 2, r
@@ -40,3 +49,5 @@ PS /home/joakim>
 
 
 ```
+
+Joakim Borger Svendsen. Svendsen Tech.
