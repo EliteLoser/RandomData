@@ -50,7 +50,7 @@ PS /home/joakim>
 
 I forgot it's cast to [char]. This works for a hex string:
 
-PS /home/joakim/Documents/testdir> $Key = New-RandomData -Count 1 -Size 4096 -LineLength 128 -Path (Get-Location) -RandomChar @(@(([char]"0"..[char]"9")) + @("a", "b", "c", "d", "e", "f", "A", "B", "C", "D", "E", "F")) -StreamToSTDOUT
+PS /home/joakim/Documents/testdir> $Key = New-RandomData -Count 1 -Size 4096 -LineLength 128 -RandomChar @(@(([char]"0"..[char]"9")) + @("a", "b", "c", "d", "e", "f", "A", "B", "C", "D", "E", "F")) -StreamToSTDOUT
     
 # See how it's done in the parameter definition for -RandomCharArray for examples of [char]'a'..[char]'f', etc.
     
