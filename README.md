@@ -40,7 +40,8 @@ a, A, b, B, c, C, d, D, e, E, f, F, System.Object[]
 PS /home/joakim> $KeyArrayLetters = tempqlfunc a A b B c C d D e E f F 0 1 2 3 4 5 6 7 8 9
 PS /home/joakim> $KeyArrayLetters -join ", "                                              
 a, A, b, B, c, C, d, D, e, E, f, F, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-PS /home/joakim> $Key2 = New-RandomData -LineLength 3096 -Size 3096 -StreamToSTDOUT -RandomChar $KeyArrayLetters          PS /home/joakim> $Key2 = New-RandomData -LineLength 128 -Size 128 -StreamToSTDOUT -RandomChar $KeyArrayLetters  
+PS /home/joakim> $Key2 = New-RandomData -LineLength 3096 -Size 3096 -StreamToSTDOUT -RandomChar $KeyArrayLetters
+PS /home/joakim> $Key2 = New-RandomData -LineLength 128 -Size 128 -StreamToSTDOUT -RandomChar $KeyArrayLetters  
 PS /home/joakim> $Key2.Length
 128
 PS /home/joakim> -join $Key2
@@ -50,6 +51,8 @@ PS /home/joakim>
 I forgot it's cast to [char]. This works for a hex string:
 
 PS /home/joakim/Documents/testdir> $Key = New-RandomData -Count 1 -Size 4096 -LineLength 128 -Path (Get-Location) -RandomChar @(@(([char]"0"..[char]"9")) + @("a", "b", "c", "d", "e", "f", "A", "B", "C", "D", "E", "F")) -StreamToSTDOUT
+    
+# See how it's done in the parameter definition for -RandomCharArray for examples of [char]'a'..[char]'f', etc.
     
 PS /home/joakim/Documents/testdir> $key
 
