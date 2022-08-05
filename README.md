@@ -15,79 +15,61 @@ https://www.powershelladmin.com/wiki/Create_cryptographically_secure_and_pseudor
 Some code examples.
 
 ```
-PS /home/joakim> Save-Module -Name RandomData -Path /home/joakim/Documents
-PS /home/joakim> Import-Module ./Documents/RandomData                                      
-PS /home/joakim> $Key = New-RandomData -LineLength 3096 -Size 3096 -StreamToSTDOUT
-PS /home/joakim> $Key[0..10] -join ", "                                           
-i, y, R, o, 7, 5, U, O, g, 2, r
-PS /home/joakim> $Key2 = New-RandomData -LineLength 3096 -Size 3096 -StreamToSTDOUT -Random
+PS /home/joakim/Documents> Import-Module ./RandomData/                                              
+PS /home/joakim/Documents> $RandomString = New-RandomData -LineLength 20 -Size 20 -StreamToSTDOUT
+PS /home/joakim/Documents> $RandomString                                                         
+4zffUVJbOl6GF8sbQOpu
+PS /home/joakim/Documents> $HexKey = New-RandomData -LineLength 64 -Size 64 -StreamToSTDOUT -Random
 RandomChar          RandomCharExclude   RandomFileNameGUID  
-PS /home/joakim> $Key2 = New-RandomData -LineLength 3096 -Size 3096 -StreamToSTDOUT -RandomCharExclude "-", "_"
-PS /home/joakim> $Key2.Length
-3096
-
-PS /home/joakim> -join $Key2                                                                                   
-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
+PS /home/joakim/Documents> $HexKey = New-RandomData -LineLength 64 -Size 64 -StreamToSTDOUT `
+    -RandomChar @(@([char]'a'..[char]'f') + @([char]'0'..[char]'9'))      
+PS /home/joakim/Documents> $HexKey                                                                                             24aac8116deb2d79b8796995ce2687f84d3bd092259473d24e42e274f7562e57
 
 
-# Seeing some weird stuff when trying to limit to a-fA-F0-9... 
-# brain not working right, probably, I'm getting rusty
+# Sizes are off by a smidge on Linux, probably due to \r being missing on this platform.
 
-PS /home/joakim> function tempqlfunc {$args}
-PS /home/joakim> $KeyArrayLetters = tempqlfunc a A b B c C d D e E f F (0..9)
-PS /home/joakim> $KeyArrayLetters -join ", "
-a, A, b, B, c, C, d, D, e, E, f, F, System.Object[]
-PS /home/joakim> $KeyArrayLetters = tempqlfunc a A b B c C d D e E f F 0 1 2 3 4 5 6 7 8 9
-PS /home/joakim> $KeyArrayLetters -join ", "                                              
-a, A, b, B, c, C, d, D, e, E, f, F, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-PS /home/joakim> $Key2 = New-RandomData -LineLength 3096 -Size 3096 -StreamToSTDOUT -RandomChar $KeyArrayLetters
-PS /home/joakim> $Key2 = New-RandomData -LineLength 128 -Size 128 -StreamToSTDOUT -RandomChar $KeyArrayLetters  
-PS /home/joakim> $Key2.Length
-128
-PS /home/joakim> -join $Key2
-DabFF   aBA	ACacced	CcbACfBCAcacdbAeCFABbE	bebbbEcBbDeEDcaebCd	BEfFeBfCdbe
-PS /home/joakim> 
+PS /home/joakim/Documents> mkdir randomdatatest                         
+PS /home/joakim/Documents> cd randomdatatest
+PS /home/joakim/Documents/randomdatatest> gci
+PS /home/joakim/Documents/randomdatatest> Measure-Command { 
+    New-RandomData -Count 100 -Size 8192 -LineLength 128 -Path (Get-Location) }
+    | % TotalSeconds      
+2.3546092
+PS /home/joakim/Documents/randomdatatest> gci | select -first 10
 
-I forgot it's cast to [char]. This works for a hex string:
+    Directory: /home/joakim/Documents/randomdatatest
 
-PS /home/joakim/Documents/testdir> $Key = New-RandomData -Count 1 -Size 4096 -LineLength 128 -RandomChar @(@(([char]"0"..[char]"9")) + @("a", "b", "c", "d", "e", "f", "A", "B", "C", "D", "E", "F")) -StreamToSTDOUT
-    
-# See how it's done in the parameter definition for -RandomCharArray for examples of [char]'a'..[char]'f', etc.
-    
-PS /home/joakim/Documents/testdir> $key
+UnixMode   User             Group                 LastWriteTime           Size Name
+--------   ----             -----                 -------------           ---- ----
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-001.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-002.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-003.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-004.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-005.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-006.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-007.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-008.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-009.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-010.txt
 
-DEc296280c7B5d4fe73A204db0879b4DA94a641C6B8eb1640AaC0cCDAEd9EAEa890B8A8966a7dc29f46e17D3d7A7deEcCD511bB680cf2b53C3Af9591cC4100Cd
-8DaA61838061A3012cb9D42c94a46A673E740aDABc79F868C3F9a9f4BD62c4DefFEBCC0dfAd7Ded1D183ADCf42933A4dffAFaacF28AfB872654aBADC24cf8D9E
-c0e3Edd8b80822DCB6CEcfBFBED5DCd5EC3BA33edBF9fafF6AD10a8D5f80A8bfBBa6F22e347AA7564DF3Eb49a5b0A3D565eD0903e5EB3d3D91CD97A5c0Bfc1DF
-719af76ADBbfc85C2edf60CEb860e6cc7Ea23e41B10dC1f4AFcEa4f65bF6162c4E7dD3faabE4F429f25efe2354DefD0bF99DA16c629E5a608ccE09CcC38f60Ac
-a95cB4eeBe8c43DBDD5371acdC1ced657D9C4A43DD27057f5cB9Ad58EfEF31F48356f1c2e259E2b7a772BDafe0DbB50BDEFD00F40fAe8BaC3daBAD8aebee4069
-1ab02e6982122C7Cc174A400cb4b860F86cE59fb709eC68C3C12f2eD9b9d9A1121AB59c27CCAB836377c5D65efaA021cE7bAbcdA5EBC6E1173a18bC5Ba3bFC25
-A5B9D9AcAd6619Ffd98Cd039b5E181B8Cc202e4E9D7B4c37b9Eca6dA18Ddae4fCEab6EdF4a9Ae84F1dbE24EbE8EfAc9AfdE61e0cCF7FDD1f4EbD35cdFEdE0D4e
-1e01aED9cF23DEe175bC0bda166312cFAeE4C045017338f16bcA78db1cF3dA898384094705BE496ed5DbbCd8193501e6fDB0Fa1C65f1ce6d56c8DDDcbF3c6E6F
-db56d6e241452bC92b0fb59BF5aF7ab7FAa1800Eea4Cee9F3A9BEc972967BeAfbD671A02a1111c37CaCd0f8872FEfe2Ffa6B81E8f77Db86b6Fb7C3fCaD0EB18C
-E27d67FAc9Df8bDEC9eA2B2cB97a1FddEaE91e4EFBB950aE02279eA2FACC0becC6ADcaC35fA60f7BF8aFD536AC96C7Ea24cF5c7b5E2AD91590Dd0fed293A0c7D
-B63C37b81EfF2997A3CBa699bFDC9dbed5Fd5522bac2Ffaf0BFCfb8aCA63afF9818D9C2a1A60f69Ca3BddeF1CaAaFFdCa3fE7d54fbBF58Bb7af6D7Cf160F1db2
-29bcdaaCEcE2D0Caf43b57E36FC0c622FfCBC5ECFC869fC1ac6D90CBb85de96daB2430da57b9EdAd3Ac005eFC05aF73bcACdceE9FCd2a8CEde9DD5d43372B2aE
-30D4A20bC304dbba47D7D6e63e996BeD7fF9be3beE1f48ddeDE9520C7d12fc41b3CDc1Fb48fF4E1A0CB9C4e4f21Dd1C1f041cf1cE94C90d9b61CBB46bd49F1E3
-cd64AF47A4b9FBBeae86FF6DBEbEaedCb16BA9eb2f2c6B6ACcE6fd3d788C95C1ceDEaFD10C45Cfd0dB1Ef73DDfa80C1CC00eD85DfC6D9DAeA84e4E85a00Aaa13
-A79BfE25c35C06a0FCddd9eEeA3D7b84B222aFEB5E20fb43c0BeC9b6ea2EB5E0B01D38bFDC8f7e53b067ff78dC90C00F014e97F4bBB01CE05F9AEc71ee67Eb3D
-B8e69cf402CDE77AD9ACc619A3FB0d5FeE5f3edf54ABA9377babA66b64c6cE38DC502ec4C1d8c5e6Fe9b3A47dA8F262717EE335fE5fffEE1b56Eae52dD885d2b
-F5746A2C8fcD1befB69C03C81C76BD9633AadABB2abB17125edF45aB8E3a9C0b66ADA421befcd17fA5126a2DeE1ec68690aBd370cc9bcE46d9f4BE5B3D4B29a4
-692dcb2cD0cA0c7AAA13c4aaAfdAFbD21452BcA1626B8bBcba1886e2EdDDE7d829eB64E400C9Df24D04aabfBc334fC3FbDeEDF67cC889445aeFD33EdfC420Aa3
-CDE0046DADEd2788FDf0C5C7F141A36B84bb5456722546a8aC321a7d1c0E052dc25EBC2Be9eA2c3edBdEF3AEDEaf3652Fbf21bcdA7adBcab9765e4d9760D88e8
-3cBcC1c14F3df2269E5BF09AE6AAaf47f1a4BDe8A50f1Ff43faa2C9331ec6CdbABEdeEbb5D0A0AeEcbcB4A4Ce71A521EdaE511c54E45Ce398A0B5B6Fc1F7DB63
-C12bB8DaF7c5cF0F4e8a16fC3Ee01489e08AcddFDbBD519d00359B1c767CAD9AF3dbd58c08dcaCc2b1F1120DEC965A5F20E19D0Bdc403b1bf56eD7fC3AdAC275
-3eaaDbee149aDFf9BDd09d2A71Ef55Eb5FCb0cd3cecfD4E303EFb6BccA2CdF8C5E5E3494599B08C22Af26FFE36F6aBcd5A9EFF0BAAf2D0b3D0fC56b6F6BD53Aa
-CCc6ED23AE8c5D12AB891A7F53Ff33cd0451a55FDc27EF015f29A692ad1BE9Fc7Bc1d0eac9cbd0062Daa02CfB3cD491adbF38Fa40eD6AEaacBe0Fac5EC599B62
-82D20DD295985cEDf279B0a2EA5cf0B57ADe08aeEbcf14F7D8A7aD77dB35e698a30ae6D6deb5aA1AADe769Ba9c1454Fd235D3bedb9fB82DCA8aBe2207c025e19
-eD26b3d540CCA017e49CA4E015bcac8C862aFd7dB5ce5667af9055f9F246d0AeeF99Dd71DC1ae6AAE42B28c3dfbD81FAaE05CCaD772834Be7a79EFb596C42afC
-C6FA6aE1A49A53F8DCcEfbCb8ACc05BDe6bC418Cc5ffbA056965EB37aa7cd71a9c2Ed24Caf79C20efd6cFbFD348AfB44455Fe2d359A49fa8afD01baEd5B9A92e
-b35cC00d026bAA9afF60E43eA778748B71f69Eb9e6FE4F3CB7fA31A60cCaed5Cfa4e030BaC7e44aB4bd0bee5786D10A1035fBaBe6D66f22B21630571CE7eC3A9
-26e0FAFffEfd77b56aB0Ac1AC3DC33B32D49a2C71ca1cfAa81888feb4D3BD2cb2baa21B3d9E31F439891B9B94e5cE19EFFF0468764AEBaa4f08bfbAfA15aC55c
-004203E302AceDdf41CDeE5a55620Db1E4EA683c25bcA30D9c6B88D1AACBCB22dfeaED8BD6B99ff249e9dffc6C0cb8f628E1acEc3aD1cae10Ac93faDF142DB6a
-db60Addea253BdFB3EcBC539E1198Cf839a13e792EF0961828EE5be77D1eb46e8DF82Ddbc2eE620dFf6FDA2eA3f5ceDEd6eb6e64A972CA15DafCD7AdB7eF37EE
-5f6Faa66924a8FB01a82F006b0fF0609b9D3a1B8399B265CbeDfFBE4eFaaA6521BFE1eb0fFEcd534BD98879fbeaad6eC36A776AD2D0FC8d9B5fDCDfA75984188
-7186bCDb2c6b69C210f8dAF5cF01C7e1beeAF6EF74A6d49D976370Ac23fbCBeBD5FdB12B2A090fe7b2ea0bfaE1eCc92bbF874C284b1dF6c8a7Ff34A8baff855e
+PS /home/joakim/Documents/randomdatatest> gci | select -last 10 
+
+    Directory: /home/joakim/Documents/randomdatatest
+
+UnixMode   User             Group                 LastWriteTime           Size Name
+--------   ----             -----                 -------------           ---- ----
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-091.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-092.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-093.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-094.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-095.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-096.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-097.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-098.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-099.txt
+-rw-rw-r-- joakim           joakim               8/6/2022 00:02           8128 random_file-100.txt
+
+PS /home/joakim/Documents/randomdatatest> 
 
 ```
 
