@@ -23,7 +23,9 @@ PS /home/joakim/Documents> $HexKey = New-RandomData -LineLength 64 -Size 64 -Str
 RandomChar          RandomCharExclude   RandomFileNameGUID  
 PS /home/joakim/Documents> $HexKey = New-RandomData -LineLength 64 -Size 64 -StreamToSTDOUT `
     -RandomChar @(@([char]'a'..[char]'f') + @([char]'0'..[char]'9'))      
-PS /home/joakim/Documents> $HexKey                                                                                             24aac8116deb2d79b8796995ce2687f84d3bd092259473d24e42e274f7562e57
+PS /home/joakim/Documents> $HexKey                                                                                             
+
+24aac8116deb2d79b8796995ce2687f84d3bd092259473d24e42e274f7562e57
 
 
 # Sizes are off by a smidge on Linux, probably due to \r being missing on this platform.
